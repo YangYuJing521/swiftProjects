@@ -15,6 +15,7 @@
 		493A6D4A2349D236000F3810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493A6D482349D236000F3810 /* LaunchScreen.storyboard */; };
 		493A6D552349D237000F3810 /* project_02_stopWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6D542349D237000F3810 /* project_02_stopWatchTests.swift */; };
 		493A6D602349D237000F3810 /* project_02_stopWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6D5F2349D237000F3810 /* project_02_stopWatchUITests.swift */; };
+		493A6D6E2349FDDA000F3810 /* stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6D6D2349FDDA000F3810 /* stopwatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		493A6D5B2349D237000F3810 /* project-02 stopWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "project-02 stopWatchUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		493A6D5F2349D237000F3810 /* project_02_stopWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_02_stopWatchUITests.swift; sourceTree = "<group>"; };
 		493A6D612349D237000F3810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493A6D6D2349FDDA000F3810 /* stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stopwatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				493A6D3D2349D235000F3810 /* AppDelegate.swift */,
 				493A6D3F2349D235000F3810 /* SceneDelegate.swift */,
 				493A6D412349D235000F3810 /* ViewController.swift */,
+				493A6D6D2349FDDA000F3810 /* stopwatch.swift */,
 				493A6D432349D235000F3810 /* Main.storyboard */,
 				493A6D462349D236000F3810 /* Assets.xcassets */,
 				493A6D482349D236000F3810 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 				493A6D422349D235000F3810 /* ViewController.swift in Sources */,
 				493A6D3E2349D235000F3810 /* AppDelegate.swift in Sources */,
 				493A6D402349D235000F3810 /* SceneDelegate.swift in Sources */,
+				493A6D6E2349FDDA000F3810 /* stopwatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
