@@ -10,21 +10,23 @@ import UIKit
 
 class ContactUsViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!  //这里是weak
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view.addSubview(scrollView)
     }
+
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLayoutSubviews() { //会在layoutsubviews之前调用
+        super.viewDidLayoutSubviews()
+        
+        if #available(iOS 11.0, *) {
+            scrollView.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.frame.width, height: view.frame.height-view.safeAreaInsets.top-view.safeAreaInsets.bottom)
+        }else{
+            scrollView.frame = CGRect(x: 0, y: topLayoutGuide.length, width: view.frame.width, height: view.frame.height-topLayoutGuide.length-bottomLayoutGuide.length)
+        }
+        
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 800)
     }
-    */
-
 }

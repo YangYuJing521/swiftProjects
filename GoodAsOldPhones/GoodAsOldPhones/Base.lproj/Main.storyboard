@@ -48,8 +48,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eky-bt-NA7">
-                                <rect key="frame" x="0.0" y="144" width="414" height="725"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eky-bt-NA7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="phone num" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjB-5O-IUe">
                                 <rect key="frame" x="20" y="211" width="374" height="67"/>
@@ -70,12 +70,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="xJ9-We-0C5" firstAttribute="trailing" secondItem="Eky-bt-NA7" secondAttribute="trailing" id="BId-nL-58A"/>
-                            <constraint firstItem="Eky-bt-NA7" firstAttribute="top" secondItem="xJ9-We-0C5" secondAttribute="top" id="HS4-ef-tDS"/>
-                            <constraint firstItem="Eky-bt-NA7" firstAttribute="leading" secondItem="xJ9-We-0C5" secondAttribute="leading" id="YEI-Px-Rdg"/>
+                            <constraint firstAttribute="trailing" secondItem="Eky-bt-NA7" secondAttribute="trailing" id="72d-Z4-Ucv"/>
+                            <constraint firstAttribute="bottom" secondItem="Eky-bt-NA7" secondAttribute="bottom" id="C0o-9P-aKP"/>
+                            <constraint firstItem="Eky-bt-NA7" firstAttribute="leading" secondItem="V1V-fc-sc5" secondAttribute="leading" id="W6s-QV-ExV"/>
                             <constraint firstItem="Eky-bt-NA7" firstAttribute="centerY" secondItem="V1V-fc-sc5" secondAttribute="centerY" id="dm3-9e-6Mp"/>
-                            <constraint firstItem="xJ9-We-0C5" firstAttribute="bottom" secondItem="Eky-bt-NA7" secondAttribute="bottom" id="fQz-3A-R6J"/>
                             <constraint firstItem="Eky-bt-NA7" firstAttribute="centerX" secondItem="V1V-fc-sc5" secondAttribute="centerX" id="xqb-Gd-qgd"/>
+                            <constraint firstItem="Eky-bt-NA7" firstAttribute="top" secondItem="V1V-fc-sc5" secondAttribute="top" id="yeL-Ld-cgk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xJ9-We-0C5"/>
                     </view>
@@ -110,7 +110,7 @@
         <!--us-->
         <scene sceneID="5Zp-0c-L33">
             <objects>
-                <viewController id="4bk-wH-WG2" sceneMemberID="viewController">
+                <viewController id="4bk-wH-WG2" customClass="ContactUsViewController" customModule="GoodAsOldPhones" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9xE-JQ-h5e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,8 +118,64 @@
                         <viewLayoutGuide key="safeArea" id="RRT-Nn-p85"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="us" id="sRK-9c-TqJ"/>
+                    <connections>
+                        <outlet property="scrollView" destination="mX4-k7-4sR" id="zdm-e4-rIT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rL8-iu-L4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" id="mX4-k7-4sR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="header-contact" translatesAutoresizingMaskIntoConstraints="NO" id="z1f-AB-WoP">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDY-RK-iZu">
+                            <rect key="frame" x="94" y="237" width="187" height="106"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="DamascusBold" family="Damascus" pointSize="24"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-about-email" translatesAutoresizingMaskIntoConstraints="NO" id="zV9-Bk-Ahj">
+                            <rect key="frame" x="69" y="451" width="44" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-about-phone" translatesAutoresizingMaskIntoConstraints="NO" id="PqP-ct-n1E">
+                            <rect key="frame" x="69" y="503" width="44" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-about-website" translatesAutoresizingMaskIntoConstraints="NO" id="NWh-Vw-xyU">
+                            <rect key="frame" x="69" y="555" width="44" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="good-as-old@example.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXg-i0-HU7">
+                            <rect key="frame" x="121" y="463" width="168" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="13"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="412-888-9028" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzP-MI-Alb">
+                            <rect key="frame" x="121" y="515" width="168" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="13"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="www.example.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMS-uu-V1X">
+                            <rect key="frame" x="121" y="565" width="168" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="13"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="zYc-KY-pit"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="G0y-zs-Dxy"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="K4B-g9-ve0"/>
+                </scrollView>
             </objects>
             <point key="canvasLocation" x="-2089" y="-1134"/>
         </scene>
@@ -143,5 +199,9 @@
     </scenes>
     <resources>
         <image name="button-addtocart" width="158.5" height="41"/>
+        <image name="header-contact" width="375" height="125"/>
+        <image name="icon-about-email" width="34.5" height="34.5"/>
+        <image name="icon-about-phone" width="34.5" height="34.5"/>
+        <image name="icon-about-website" width="34.5" height="34.5"/>
     </resources>
 </document>
