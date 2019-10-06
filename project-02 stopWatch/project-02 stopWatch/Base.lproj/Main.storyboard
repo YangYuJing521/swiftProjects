@@ -64,6 +64,9 @@
                                     <constraint firstAttribute="height" constant="60" id="hZS-oa-RHZ"/>
                                 </constraints>
                                 <state key="normal" title="lap"/>
+                                <connections>
+                                    <action selector="lapButtonTouchd:" destination="BYZ-38-t0r" eventType="touchDown" id="ODQ-KF-kFg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWn-8q-kUM">
                                 <rect key="frame" x="234" y="336" width="60" height="60"/>
@@ -76,22 +79,39 @@
                                 <state key="normal" title="start">
                                     <color key="titleColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButtonTouched:" destination="BYZ-38-t0r" eventType="touchDown" id="kdV-wp-fhF"/>
+                                </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ajn-yO-eKX">
-                                <rect key="frame" x="20" y="564" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ajn-yO-eKX">
+                                <rect key="frame" x="0.0" y="480" width="414" height="416"/>
+                                <color key="separatorColor" red="0.80810799870466321" green="0.80810799870466321" blue="0.80810799870466321" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="clockCellId" id="KA9-m3-sfo">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KA9-m3-sfo" id="IIz-xh-G0a">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.80810799870000005" green="0.80810799870000005" blue="0.80810799870000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.88244818652849744" green="0.88244818652849744" blue="0.88244818652849744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="dYy-so-Cgl" firstAttribute="leading" secondItem="qRr-QG-5C0" secondAttribute="leading" constant="100" id="2rA-2Q-R8d"/>
                             <constraint firstItem="dYy-so-Cgl" firstAttribute="top" secondItem="AWn-8q-kUM" secondAttribute="top" id="Mbw-44-TAc"/>
+                            <constraint firstItem="Ajn-yO-eKX" firstAttribute="top" secondItem="dYy-so-Cgl" secondAttribute="bottom" constant="84" id="RNF-eb-was"/>
+                            <constraint firstAttribute="bottom" secondItem="Ajn-yO-eKX" secondAttribute="bottom" id="Rlz-LW-KqW"/>
                             <constraint firstItem="qRr-QG-5C0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="STt-f6-ytR"/>
                             <constraint firstAttribute="trailing" secondItem="qRr-QG-5C0" secondAttribute="trailing" id="ZLa-OV-VTM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AWn-8q-kUM" secondAttribute="trailing" constant="100" id="iwi-tf-2Ew"/>
                             <constraint firstItem="AWn-8q-kUM" firstAttribute="top" secondItem="qRr-QG-5C0" secondAttribute="bottom" constant="48" id="nyP-vc-t2O"/>
+                            <constraint firstItem="Ajn-yO-eKX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tlW-lK-2R6"/>
                             <constraint firstItem="qRr-QG-5C0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xep-l9-l1M"/>
+                            <constraint firstAttribute="trailing" secondItem="Ajn-yO-eKX" secondAttribute="trailing" id="yuC-vE-uNH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
