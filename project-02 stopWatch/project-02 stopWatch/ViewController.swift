@@ -55,7 +55,22 @@ class ViewController: UIViewController {
     // MARK: -Actions
     @IBAction func lapButtonTouchd(_ sender: Any) {
         
-        
+        if isPlay {//记录
+            if let timeString = MainClockLabel.text {  //这个写法会经常用到
+                laps.append(timeString)
+            }
+            resetLapTimer()
+            mainTable.reloadData()
+            unowned let weakSelf = self
+            lepStopWatch.timer = Timer.scheduledTimer(timeInterval: 0.035, target: weakSelf, selector: #selector(updateLapTimer), userInfo: nil, repeats: true)
+            RunLoop.current.add(lepStopWatch.timer, forMode: RunLoop.Mode.common)
+        }else{
+//          重置
+            resetMainTimer()
+            resetLapTimer()
+            chageButton(lapButton, title: "lap", titleColor: UIColor.lightGray)
+            lapButton.isEnabled = false;
+        }
     }
     @IBAction func startButtonTouched(_ sender: Any) {
         lapButton.isEnabled = true
@@ -84,6 +99,24 @@ class ViewController: UIViewController {
         button.setTitleColor(titleColor, for: UIControl.State())
     }
     
+    
+    fileprivate func resetMainTimer(){
+        resetTimer(startStopWatch)
+        MainClockLabel.text = "00:00:00"
+        laps.removeAll()
+        mainTable.reloadData()
+    }
+    
+    fileprivate func resetLapTimer(){
+        resetTimer(lepStopWatch)
+        SubsidiaryClock.text = "00:00:00"
+    }
+    
+    fileprivate func resetTimer(_ stopwatch: stopwatch){
+        stopwatch.counter = 0.0;
+        stopwatch.timer.invalidate()
+    }
+    
     @objc func updateMainTimer(){   //@objc func
         updateTimer(startStopWatch, label: MainClockLabel)
     }
@@ -91,9 +124,9 @@ class ViewController: UIViewController {
     @objc func updateLapTimer(){
         updateTimer(lepStopWatch, label: SubsidiaryClock)
     }
-
     
-    func updateTimer(_ stopwatch: stopwatch, label: UILabel) {
+    
+    fileprivate func updateTimer(_ stopwatch: stopwatch, label: UILabel) {
       stopwatch.counter = stopwatch.counter + 0.035
       
       var minutes: String = "\((Int)(stopwatch.counter / 60))"  //int转为字符串
@@ -121,6 +154,12 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier: String = "clockCellId"
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        if let leftLabel = cell.viewWithTag(11) as? UILabel{
+            leftLabel.text =  "Lap \(laps.count - (indexPath as NSIndexPath).row)"
+        }
+        if let rightLabel = cell.viewWithTag(12) as? UILabel {
+            rightLabel.text = laps[laps.count - (indexPath as NSIndexPath).row - 1]
+        }
         return cell
     }
 
