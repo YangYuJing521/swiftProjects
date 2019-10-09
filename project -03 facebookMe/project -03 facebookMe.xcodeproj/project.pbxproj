@@ -16,6 +16,9 @@
 		493A6DB1234C7665000F3810 /* FBMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DB0234C7665000F3810 /* FBMeViewController.swift */; };
 		493A6DB4234C8A17000F3810 /* FMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DB3234C8A17000F3810 /* FMUser.swift */; };
 		493A6DB7234C96E4000F3810 /* FBMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DB6234C96E4000F3810 /* FBMeCell.swift */; };
+		493A6DBA234D8350000F3810 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DB9234D8350000F3810 /* UIColor+Extension.swift */; };
+		493A6DBC234D8650000F3810 /* Specs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DBB234D8650000F3810 /* Specs.swift */; };
+		493A6DBE234D8D66000F3810 /* TableKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DBD234D8D66000F3810 /* TableKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		493A6DB0234C7665000F3810 /* FBMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBMeViewController.swift; sourceTree = "<group>"; };
 		493A6DB3234C8A17000F3810 /* FMUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMUser.swift; sourceTree = "<group>"; };
 		493A6DB6234C96E4000F3810 /* FBMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBMeCell.swift; sourceTree = "<group>"; };
+		493A6DB9234D8350000F3810 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		493A6DBB234D8650000F3810 /* Specs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specs.swift; sourceTree = "<group>"; };
+		493A6DBD234D8D66000F3810 /* TableKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,9 @@
 		493A6DB8234D7B36000F3810 /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				493A6DB9234D8350000F3810 /* UIColor+Extension.swift */,
+				493A6DBB234D8650000F3810 /* Specs.swift */,
+				493A6DBD234D8D66000F3810 /* TableKeys.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -296,7 +305,10 @@
 				493A6DB7234C96E4000F3810 /* FBMeCell.swift in Sources */,
 				493A6DB1234C7665000F3810 /* FBMeViewController.swift in Sources */,
 				493A6DB4234C8A17000F3810 /* FMUser.swift in Sources */,
+				493A6DBC234D8650000F3810 /* Specs.swift in Sources */,
+				493A6DBA234D8350000F3810 /* UIColor+Extension.swift in Sources */,
 				493A6DAE234C6A1F000F3810 /* FBMeBaseViewController.swift in Sources */,
+				493A6DBE234D8D66000F3810 /* TableKeys.swift in Sources */,
 				493A6D7C234C57A7000F3810 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
