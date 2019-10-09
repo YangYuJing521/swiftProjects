@@ -13,6 +13,9 @@
 		493A6D93234C57A8000F3810 /* project__03_facebookMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6D92234C57A8000F3810 /* project__03_facebookMeTests.swift */; };
 		493A6D9E234C57A8000F3810 /* project__03_facebookMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6D9D234C57A8000F3810 /* project__03_facebookMeUITests.swift */; };
 		493A6DAE234C6A1F000F3810 /* FBMeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DAD234C6A1F000F3810 /* FBMeBaseViewController.swift */; };
+		493A6DB1234C7665000F3810 /* FBMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DB0234C7665000F3810 /* FBMeViewController.swift */; };
+		493A6DB4234C8A17000F3810 /* FMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DB3234C8A17000F3810 /* FMUser.swift */; };
+		493A6DB7234C96E4000F3810 /* FBMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493A6DB6234C96E4000F3810 /* FBMeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		493A6D9D234C57A8000F3810 /* project__03_facebookMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project__03_facebookMeUITests.swift; sourceTree = "<group>"; };
 		493A6D9F234C57A8000F3810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493A6DAD234C6A1F000F3810 /* FBMeBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBMeBaseViewController.swift; sourceTree = "<group>"; };
+		493A6DB0234C7665000F3810 /* FBMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBMeViewController.swift; sourceTree = "<group>"; };
+		493A6DB3234C8A17000F3810 /* FMUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMUser.swift; sourceTree = "<group>"; };
+		493A6DB6234C96E4000F3810 /* FBMeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBMeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				493A6D7B234C57A7000F3810 /* AppDelegate.swift */,
-				493A6DAD234C6A1F000F3810 /* FBMeBaseViewController.swift */,
+				493A6DB8234D7B36000F3810 /* helper */,
+				493A6DB5234C96BF000F3810 /* View */,
+				493A6DB2234C8A04000F3810 /* Model */,
+				493A6DAF234C7600000F3810 /* ViewController */,
 				493A6D84234C57A8000F3810 /* Assets.xcassets */,
 				493A6D86234C57A8000F3810 /* LaunchScreen.storyboard */,
 				493A6D89234C57A8000F3810 /* Info.plist */,
@@ -120,6 +129,38 @@
 				493A6D9F234C57A8000F3810 /* Info.plist */,
 			);
 			path = "project -03 facebookMeUITests";
+			sourceTree = "<group>";
+		};
+		493A6DAF234C7600000F3810 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				493A6DAD234C6A1F000F3810 /* FBMeBaseViewController.swift */,
+				493A6DB0234C7665000F3810 /* FBMeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		493A6DB2234C8A04000F3810 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				493A6DB3234C8A17000F3810 /* FMUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		493A6DB5234C96BF000F3810 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				493A6DB6234C96E4000F3810 /* FBMeCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		493A6DB8234D7B36000F3810 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +293,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493A6DB7234C96E4000F3810 /* FBMeCell.swift in Sources */,
+				493A6DB1234C7665000F3810 /* FBMeViewController.swift in Sources */,
+				493A6DB4234C8A17000F3810 /* FMUser.swift in Sources */,
 				493A6DAE234C6A1F000F3810 /* FBMeBaseViewController.swift in Sources */,
 				493A6D7C234C57A7000F3810 /* AppDelegate.swift in Sources */,
 			);
