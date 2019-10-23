@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 //       let subsequesce  = string.split(separator: " ")
 //       print(subsequesce)
         
-        dataTypeConversion()
+        extensionFunc()
         
     }
 }
@@ -717,6 +717,40 @@ extension ViewController{
             }
         }
     }
+    
+    // MARK: -扩展
+    fileprivate func extensionFunc(){
+        let number = 10.ADD.Minus.Plus.Devid
+        print(number)
+        
+        let subject = Subject(name2: "hahaha")
+        print(subject.name)
+        
+        let sum = Sum(num1: 50, num2: 100)
+        let diff = Diff(NO1: 60, NO2: 80)
+//        let getMult = Mult(a: <#T##Sum#>, b: <#T##Diff#>, PlusSum: <#T##Int#>, PlusDiff: <#T##Int#>)
+        let getMultExt = Mult(x: sum, y: diff)
+        print("getMultExt sum\(getMultExt.a.num1),\( getMultExt.a.num2) PlusSum:\(getMultExt.PlusSum)")
+        print("getMultExt diff\(getMultExt.b.NO1),\(getMultExt.b.NO2) PlusDiff:\(getMultExt.PlusDiff)")
+        
+        3.DoItSeveralTimes {
+            print("打印了一段代码")
+        }
+        2.DoItSeveralTimes(doIt: {
+            print("又打印了一段代码")
+        })
+        
+        var area = 7.0
+        area.square()
+        print(String(format: "圆的面积为%.2f", area))
+        
+        let animals = AnimalsInZoo()
+        animals[1] = "horse"
+        print(animals[2])
+        print(animals[1])
+        
+        result(numb: [-2,-1,0,1,2,3,4])
+    }
 }
 
 
@@ -1115,5 +1149,133 @@ class Creature: Subject {
 }
 
 // MARK: -swift 扩展
+//扩展可以向已有类型添加计算型实例属性和计算型类型属性
+extension Int {
+    var ADD: Int {return self + 10}
+    var Minus: Int {return self - 10}
+    var Plus: Int {return self * 10}
+    var Devid: Int {return self / 10}
+}
+//类中添加新的便利构造器
+extension Subject {
+    
+    convenience init(name2: String) {
+        self.init(name: name2)
+        self.name = "----"
+    }
+    
+}
+//扩展可以向已有类型添加新的构造器
+struct Sum {
+    var num1 = 10, num2 = 10
+}
+struct Diff {
+    var NO1 = 20, NO2 = 20
+}
+struct Mult {
+    var a = Sum()
+    var b = Diff()
+    var PlusSum: Int
+    var PlusDiff: Int
+}
+extension Mult {
+    init(x: Sum, y: Diff) {
+        a = x
+        b = y
+        PlusSum = x.num1 + x.num2
+        PlusDiff = y.NO1 + y.NO2
+    }
+}
 
+//方法
+extension Int {
+    func DoItSeveralTimes(doIt: () -> ()) {
+        for _ in 0..<self {
+            doIt()
+        }
+    }
+}
+//可变实例方法
+extension Double {
+    mutating func square() {
+        let pi = 3.141592654
+        self = self * self * pi
+    }
+}
+//下标
+class AnimalsInZoo {
+    var animals = ["dog","lion","cat","leopard","crocodile","walf","monkey"]
+}
+extension AnimalsInZoo {
+    subscript (index: Int) -> String{
+        set{
+            animals[index] = newValue
+        }
+        get{
+            return "第\(index)个动物是\(animals[index])"
+        }
+    }
+}
+//嵌套类型extension
+extension Int {
+   enum calc
+   {
+      case add
+      case sub
+      case mult
+      case div
+      case anything
+   }
+    
+    struct ssss {
+        var num1: String
+        init(num: String) {
+            self.num1 = num
+        }
+    }
 
+    var print: calc {
+      switch self
+      {
+         case 0:
+            return .add
+         case 1:
+            return .sub
+         case 2:
+            return .mult
+         case 3:
+            return .div
+         default:
+            return .anything
+       }
+   }
+    
+    var print2: ssss{
+        if self>=0 {
+            return ssss(num: "大于等于0")
+        }else{
+            return ssss(num: "小于0")
+        }
+    }
+    
+}
+
+//定义方法
+func result(numb: [Int]) {
+   for i in numb {
+      switch i.print {
+         case .add:
+            print(" add ")
+          case .sub:
+            print(" sub ")
+         case .mult:
+         print(" mult ")
+         case .div:
+         print(" div ")
+         default:
+         print(" 未知 ")
+      }
+    
+    print(i.print2.num1)
+   }
+}
