@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 //       let subsequesce  = string.split(separator: " ")
 //       print(subsequesce)
         
-        extensionFunc()
+        fanxingFunc()
         
     }
 }
@@ -751,6 +751,51 @@ extension ViewController{
         
         result(numb: [-2,-1,0,1,2,3,4])
     }
+    
+    // MARK: -Protocol
+    fileprivate func protocolFunc(){
+        let stu = StudentMarks()
+        stu.stuName = "rose"
+        print(stu.stuName, stu.subJect)
+        print(stu.attendence())
+        
+        //mutating
+        var dayEn = dayOrNight.day
+        dayEn.reVser()
+        print(dayEn)
+        
+        //init
+        let subC = TheSubClass(num: 30)
+        let subC2 = TheSubClass(num1: 20, num2: 40)
+        print(subC.num, subC.num2)
+        print(subC2.num, subC2.num2)
+        
+        //extensin:protocol
+        let per = Personal(firstname: "lele", lastname: "zhu")
+        print(per.age, per.agetype())
+        
+        //protocol 继承
+        let clasS = classSecond(num1: 50, num2: 100, print: classFirst())
+        print(clasS.result)
+        
+        //protocol 合成
+        project_konwledge_complement.show(celebrator: Personality(name: "lily", age: 40))
+        
+        //检验转换协议
+        let objectsArray: [AnyObject] = [circles(radius: 3.0),rectangle(lineL: 4.0),singleLine(lineL: 10.0)]
+        for object in objectsArray {
+            if let area = object as? AreaProtocol {
+                print("面积是\(area.area)")
+            }else{
+                print("没有面积")
+            }
+        }
+    }
+    
+    // MARK: -泛型
+    fileprivate func fanxingFunc(){
+        
+    }
 }
 
 
@@ -1186,7 +1231,6 @@ extension Mult {
         PlusDiff = y.NO1 + y.NO2
     }
 }
-
 //方法
 extension Int {
     func DoItSeveralTimes(doIt: () -> ()) {
@@ -1259,7 +1303,6 @@ extension Int {
     }
     
 }
-
 //定义方法
 func result(numb: [Int]) {
    for i in numb {
@@ -1279,3 +1322,182 @@ func result(numb: [Int]) {
     print(i.print2.num1)
    }
 }
+
+// MARK: -protcol
+///属性方法
+protocol protocolA {
+    var marks: Int{ set get } //get set 可读可写
+    var result: Bool{ get }  //可读
+    func attendence() -> String
+    func marksSecured() -> String
+}
+//继承协议A
+protocol protocolB: protocolA {
+    var subJect: String{ get set }
+    var stuName: String{ get set }
+}
+//遵守协议
+class StudentMarks: protocolB {
+    var subJect: String = "match"
+    var stuName: String = "jack"
+    var marks: Int = 80
+    let result: Bool = true
+        
+    func attendence() -> String {
+        return "The \(stuName) has secured 99% attendance"
+    }
+    func marksSecured() -> String {
+        return "\(stuName) has scored \(marks)"
+    }
+    
+}
+
+///修改值类型
+protocol changeMyself {
+    mutating func reVser()
+}
+enum dayOrNight: changeMyself{
+    case day,night
+    
+    mutating func reVser() {
+        switch self {
+        case .day:
+            self = .night
+            print("change myself to \(self)")
+        case .night:
+            self = .day
+            print("change myself to \(self)")
+        default:
+            print("no such day")
+        }
+    }
+
+}
+///init
+protocol numProtocol {
+    init(num: Int)
+}
+class TheMain {
+    let num: Int
+    init(num: Int) {
+        self.num = num
+    }
+}
+class TheSubClass: TheMain, numProtocol {
+    let num2: Int
+    
+    init(num1: Int, num2: Int) {
+        self.num2 = num2
+        super.init(num: num1)
+    }
+    // 因为遵循协议，需要加上"required"; 因为继承自父类，需要加上"override"
+    required override convenience init(num: Int) {
+        self.init(num1: num, num2: 0)
+    }
+
+}
+///在扩展中添加协议成员
+protocol AgeClasificationProtocol {
+   var age: Int { get }
+   func agetype() -> String
+}
+class Personal {
+   let firstname: String
+   let lastname: String
+   var age: Int
+   init(firstname: String, lastname: String) {
+      self.firstname = firstname
+      self.lastname = lastname
+      self.age = 10;
+   }
+}
+extension Personal : AgeClasificationProtocol{
+    func agetype() -> String {
+        return "年龄"
+    }
+}
+///协议的继承
+protocol protocolFirst {
+    func printSomeThing(str: String)
+}
+protocol ProtocolSecond {
+    func  clculLateNumber(no1: Int, no2: Int) -> Int
+}
+protocol ProtocolThird {
+    var result: Int { set get}
+}
+protocol protoColSum: ProtocolSecond, ProtocolThird {
+    init (num1: Int, num2: Int, print: protocolFirst)
+}
+/*类专属协议
+你可以在协议的继承列表中,通过添加class关键字,限制协议只能适配到类（class）类型。
+该class关键字必须是第一个出现在协议的继承列表中，其后，才是其他继承协议。格式如下：*/
+//protocol protoColSum: class, ProtocolSecond, ProtocolThird {
+//    init (num1: Int, num2: Int, print: protocolFirst)
+//}
+
+class classFirst: protocolFirst {
+    func printSomeThing(str: String) {
+        print(str)
+    }
+}
+class classSecond: protoColSum {
+    var result: Int = 0
+    
+    required init(num1: Int, num2: Int, print: protocolFirst) {
+        self.result = self.clculLateNumber(no1: num1, no2: num2)
+        let string = "get calculated number \(self.result)"
+        print.printSomeThing(str: string)
+    }
+    func clculLateNumber(no1: Int, no2: Int) -> Int {
+        return no1 + no2
+    }
+}
+///协议合成
+protocol Stname {
+    var name: String { get }
+}
+protocol Stage {
+    var age: Int { get }
+}
+struct Personality: Stname, Stage {
+    var name: String
+    var age: Int
+}
+func show(celebrator: Stname&Stage) {
+    print("\(celebrator.name) is \(celebrator.age) years old")
+}
+///检验转换协议
+protocol AreaProtocol {
+    var area: Double { get }
+}
+class circles: AreaProtocol {
+    let radius: Double
+    private let pi = 3.1415926
+    var area: Double {
+        return radius * radius * pi
+    }
+    init(radius: Double) {
+        self.radius = radius
+    }
+}
+
+class rectangle: AreaProtocol {
+    var lenght: Double
+    var area: Double {
+        return lenght * lenght
+    }
+    init(lineL: Double) {
+        self.lenght = lineL
+    }
+}
+
+class singleLine {
+    let lineLongtitude: Double
+    init(lineL: Double) {
+        self.lineLongtitude = lineL
+    }
+}
+
+// MARK: -泛型
+
