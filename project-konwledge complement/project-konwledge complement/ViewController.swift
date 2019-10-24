@@ -794,7 +794,46 @@ extension ViewController{
     
     // MARK: -泛型
     fileprivate func fanxingFunc(){
+         func swapTwoValuse<T>(_ a: inout T, _ b: inout T){
+            let temp = a
+            a = b
+            b = temp
+        }
+        var stringA = "A"
+        var stringB = "B"
+        swapTwoValuse(&stringA, &stringB)
+        print("stringA:\(stringA) stringB:\(stringB)")
         
+        //stack
+        var stacOfStrings = Stack<String>()
+        stacOfStrings.push("first")
+        stacOfStrings.push("second")
+        print("字符串元素入栈：\(stacOfStrings.items)")
+        let outItem = stacOfStrings.pop()
+        print("出栈元素:\(outItem)")
+
+        var stackOfInts = Stack<Int>()
+        stackOfInts.push(1)
+        stackOfInts.push(2)
+        print("整数元素入栈：\(stackOfInts.items)")
+        let topItem = stackOfInts.topItem
+        print("Top元素:\(topItem!)")
+
+        //procoto
+        var stackOfStrs = Stack<String>()
+        stackOfStrs.append("AAA")
+        stackOfStrs.append("BBB")
+        print(stackOfStrs.count, stackOfStrs[0])
+        
+        //where
+        let arrayA = ["baidu", "ali", "tencent"]
+        let arrayB = ["baidu", "ali", "tencent"]
+        let result = allItemsMatch(arrayA, arrayB)
+        if result {
+            print("所有元素匹配相等")
+        }else{
+            print("匹配不成功")
+        }
     }
 }
 
@@ -1500,4 +1539,54 @@ class singleLine {
 }
 
 // MARK: -泛型
+protocol Container {
+//     associatedtype 关键字来设置关联类型实例
+    associatedtype ItemType
+    // 添加一个新元素到容器里
+    mutating func append(_ item: ItemType)
+    // 获取容器中元素的数
+    var count: Int { get }
+    // 通过索引值类型为 Int 的下标检索到容器中的每一个元素
+    subscript (index: Int) -> ItemType { get }
+}
+struct Stack<element>: Container {
+    var items = [element]()
+    mutating func push(_ A: element){
+        items.append(A)
+    }
+    mutating func pop() -> element{
+        return items.removeLast()
+    }
+    //protocol
+    mutating func append(_ item: element) {
+        self.push(item)
+    }
+    var count: Int{
+        return items.count
+    }
+    subscript(index: Int) -> element {
+        return items[index]
+    }
+}
+// 扩展，将 Array 当作 Container 来使用,可以让数组传到方法里
+extension Array: Container {}
+//扩展泛型
+extension Stack {
+    var topItem: element?{
+        return items.isEmpty ? nil : items[items.count-1]
+    }
+}
+func allItemsMatch<C1: Container, C2: Container>(_ firstContainer: C1, _ AnotherContainer: C2) -> Bool where C1.ItemType == C2.ItemType,C1.ItemType: Equatable {
+    //容器容量不等
+    if firstContainer.count != AnotherContainer.count {
+        return false
+    }
+    //容器内Item不等
+    for index in 0..<firstContainer.count {
+        if firstContainer[index] != AnotherContainer[index] {
+            return false
+        }
+    }
+    return true
+}
 
